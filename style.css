@@ -40,7 +40,12 @@ header {
   align-items: center;
   margin-bottom: 20px;
 }
-
+nav ul {
+  letter-spacing: 1px;
+}
+.header-img {
+  width: 100%;
+}
 nav {
   /* background-color: blue; */
   height: 10vh;
@@ -345,4 +350,24 @@ img:hover{
 }
 .article-info p:last-of-type:hover {
  color: #c00;
+}
+
+
+
+
+
+/* FOR LIVE PAGE  */
+
+
+.live-header {
+  margin: 0  auto;
+              font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+}
+
+.live-header p {
+  
 }
