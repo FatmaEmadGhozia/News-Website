@@ -10,16 +10,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+           
+        }
+        .live-section {
+            /* background: #fff; */
+        }
+
+        .live-section .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+        }
+
+        .live-section .section-title::after {
+            content: '';
+            display: block;
+            height: 4px;
+            width: 60px;
+            background: #c0392b;
+            margin: .4rem auto 0;
+        }
+    </style>
 </head>
 
 <body>
+
     <div class="container">
         <header>
             <div class="logo">
-                <img src="./images/logo1.png" alt=" LOGO NEWS image " />
+                <img src="./images/logo1.png" alt="LOGO NEWS image" />
             </div>
             <div class="header-img">
                 <img src="./images/banner.png" alt="" />
@@ -29,20 +57,184 @@
             <ul>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="standers.html">STANDING</a></li>
-                <li><a href="#">LIVE</a></li>
-                <li><a href="#">STATUS</a></li>
+                <li><a href="live.html">LIVE</a></li>
+                <li><a href="status.html">STATUS</a></li>
+
             </ul>
             <i class="fa-solid fa-magnifying-glass"></i>
         </nav>
-        <section>
-            <div class="live-matches">
-              <div class="live-header">
-                <p>SEASON 2024 / 2025</p>
-                <h1>LIVE MATCHES</h1>
-              </div>
+
+        <section class="live-section">
+            <div class="text-center mt-5 mb-4">
+                <p class="text-uppercase text-danger fw-bold" style="letter-spacing:3px; font-size:.75rem;">Season 2024
+                    / 25</p>
+                <h1 class="section-title">Matches Standing</h1>
             </div>
+            <div class="live-core">
+                <div class="live-matches">
+                    <div class="live-search">
+                        <p>DATE FROM</p>
+                        <input type="date" value="01/01/2025">
+                    </div>
+                     <div class="live-search">
+                        <p>DATE TO</p>
+                        <input type="date" value="01/01/2025">
+                    </div>
+                    <div class="search">
+                        <button >Search</button>
+                    </div>
+
+                </div>
+                <div class="live-matches results">
+                  <div class="results-head">
+                    <p> PREMIEUR LEAUGE</p>
+                    <button> lIVE . 67'</button>
+                  </div>
+                  <div class="goal">
+                    <div class="logo-img">
+                        <img src="./images/logoteam.avif"  >
+                        <p>Liverpool</p>
+                    </div>
+                    <div class="live-result">
+                        <p> <span> 2</span> <span class="colon"> : </span><span> 1</span></p>
+                    </div>
+                    <div class="logo-img">
+                        <p>Manchester</p>
+                        <img src="./images/logoteam.avif" alt="">
+                        
+                    </div>
+                  </div>
+                 
+                  <div class="results-foot">
+                    <div class="line"></div>
+                    <div>
+                        <p>Today.20.00</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                 <div class="live-matches results">
+                  <div class="results-head">
+                    <p> PREMIEUR LEAUGE</p>
+                    <button class="finish-btn"> FINISHED</button>
+                  </div>
+                  <div class="goal">
+                    <div class="logo-img">
+                        <img src="./images/logoteam.avif"  >
+                        <p>Liverpool</p>
+                    </div>
+                    <div class="live-result">
+                        <p> <span> 2</span> <span class="colon"> : </span><span> 1</span></p>
+                    </div>
+                    <div class="logo-img">
+                        <p>Manchester</p>
+                        <img src="./images/logoteam.avif" alt="">
+                        
+                    </div>
+                  </div>
+                 
+                  <div class="results-foot">
+                    <div class="line"></div>
+                    <div>
+                        <p>25 Feb 2025 · 18:00</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                   <div class="live-matches results">
+                  <div class="results-head">
+                    <p> PREMIEUR LEAUGE</p>
+                    <button class="finish-btn"> FINISHED</button>
+                  </div>
+                  <div class="goal">
+                    <div class="logo-img">
+                        <img src="./images/logoteam.avif"  >
+                        <p>Liverpool</p>
+                    </div>
+                    <div class="live-result">
+                        <p> <span> 2</span> <span class="colon"> : </span><span> 1</span></p>
+                    </div>
+                    <div class="logo-img">
+                        <p>Manchester</p>
+                        <img src="./images/logoteam.avif" alt="">
+                        
+                    </div>
+                  </div>
+                 
+                  <div class="results-foot">
+                    <div class="line"></div>
+                    <div>
+                        <p>25 Feb 2025 · 18:00</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                 <div class="live-matches results">
+                  <div class="results-head">
+                    <p> PREMIEUR LEAUGE</p>
+                    <button class="upcoming-btn"> UPCOMING</button>
+                  </div>
+                  <div class="goal">
+                    <div class="logo-img">
+                        <img src="./images/logoteam.avif"  >
+                        <p>Liverpool</p>
+                    </div>
+                    <div class="live-result">
+                        <p> <span class="dash-span"> -</span> <span class="colon"> : </span><span class="dash-span"> -</span></p>
+                    </div>
+                    <div class="logo-img">
+                        <p>Manchester</p>
+                        <img src="./images/logoteam.avif" alt="">
+                        
+                    </div>
+                  </div>
+                 
+                  <div class="results-foot">
+                    <div class="line"></div>
+                    <div>
+                        <p>28 Feb 2025 · 21:00</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                  <div class="live-matches results">
+                  <div class="results-head">
+                    <p> PREMIEUR LEAUGE</p>
+                    <button class="upcoming-btn"> UPCOMING</button>
+                  </div>
+                  <div class="goal">
+                    <div class="logo-img">
+                        <img src="./images/logoteam.avif"  >
+                        <p>Liverpool</p>
+                    </div>
+                    <div class="live-result">
+                        <p> <span class="dash-span"> -</span> <span class="colon"> : </span><span class="dash-span"> -</span></p>
+                    </div>
+                    <div class="logo-img">
+                        <p>Manchester</p>
+                        <img src="./images/logoteam.avif" alt="">
+                        
+                    </div>
+                  </div>
+                 
+                  <div class="results-foot">
+                    <div class="line"></div>
+                    <div>
+                        <p>28 Feb 2025 · 21:00</p>
+                    </div>
+                    
+                  </div>
+                </div>
+                
+
+            </div>
+
+
+
+
         </section>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
