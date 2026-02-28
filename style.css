@@ -28,15 +28,18 @@ body {
 .container {
   width: 66%;
   margin: 0 auto;
-  background-color: white;
+  background: #e0dfdf;
+  /* background-color: white; */
   padding: 20px 60px;
+  background: #f7f7f7;
 }
 
 header {
-  /* background-color: aquamarine; */
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
   align-items: center;
   margin-bottom: 20px;
 }
@@ -44,10 +47,10 @@ nav ul {
   letter-spacing: 1px;
 }
 .header-img {
-  width: 100%;
+ 
 }
 nav {
-  /* background-color: blue; */
+ 
   height: 10vh;
   display: flex;
   flex-wrap: wrap;
@@ -361,13 +364,216 @@ img:hover{
 
 .live-header {
   margin: 0  auto;
-              font-family: 'Playfair Display', serif;
+              /* font-family: 'Playfair Display', serif; */
             font-size: 2rem;
             font-weight: 900;
             position: relative;
             display: inline-block;
 }
 
-.live-header p {
+.live-matches {
+  width: 90%;
+  margin: 0 auto ;
+  background-color: white;
+ height: 130px;
+ border-radius: 10px;
+ display: flex;
+ /* justify-content: space-between; */
+ gap :30px;
+ align-items: center;
+ padding: 30px;
+ box-shadow: 2px 4px 8px rgb(198, 197, 197);
+ margin-bottom: 20px;
+
+
+}
+.live-search {
+  width: 40%;
+
+}
+.search {
+  width: 20%;
+   
+}
+.live-search p {
+  font-size: 1rem;
+  color: rgb(93, 92, 92);
+  font-weight: bold;
+
+}
+.live-search input{
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 0;
+  border-radius: 5px;
+  font-size: larger;
+  margin-top:-5px ;
+  border: 1px solid rgb(184, 184, 184);
+}
+.live-search input:focus {
+  outline: none;
+  border: 2px solid #c00;
+}
+.search button {
+  padding: 10px;
+  border: 0;
+  background-color: #c00;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.search button:hover {
+  background-color: #a00;
+  cursor: pointer;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  /* border : 2px solid rgb(181, 45, 45); */
+  height: 200px;
+}
+.results-head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+ 
+  width: 100%;
+  border-radius: 2px solid red;
+
+  
+}
+.results-head p {
+  font-size: .85rem;
+  word-spacing: 2px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: rgba(204, 0, 0, 0.843);
+  
+}
+.results button {
+  padding: 10px;
+  border: 0;
+  background-color: #c00;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  /* margin-top: 30px; */
+  width: 100px;
+  height: fit-content;
+  border-radius: 20px;
+  /* position: absolute; */
+  right: -50px;
+  top: 0px;
+
+  
+  
+}
+.results button:hover {
+  background-color: #a00;
+  cursor: pointer;
+  
+}
+
+.goal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid rgb(234, 37, 37); */
+  margin-top: -31px;
+  
+
+
+}
+
+.logo-img {
+  display: flex;
+  align-items: center;
+}
+.goal p {
+  font-size: 1.2rem;
+  word-spacing: 2px;
+  /* letter-spacing: 3px; */
+  font-weight: bold;
+  color: rgba(21, 12, 12, 0.843);
+}
+
+.goal .logo-img img {
+  width: 40px;
+  height: 30px;
+
+}
+
+.live-result span {
+  font-size: 2rem;
+  margin-left: 4px;
+ 
+}
+.live-result {
+  margin-top: 8px;
+}
+.colon {
+  color: #11111153;
+  font-weight: 600;
+}
+.results-foot {
+  width: 100%;
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(169, 168, 168, 0.549);
+  margin-top: -30px;
+}
+.results-foot p {
+  font-size: .85rem;
+  word-spacing: 2px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: rgba(204, 0, 0, 0.843);
+  text-align: center;
+  font-size: 1.1rem;
+  
+}
+ .results .finish-btn {
+  background-color: #e0dfdf;
+  color: #282727c9;
+  width: 130px;
+}
+.results .finish-btn:hover {
+  background-color: #b9b8b8;
+
+  cursor: pointer;
+}
+ .results .upcoming-btn {
+ background: #eaf4ff;
+    color: #2980b9;
+  width: 130px;
+}
+.results .upcoming-btn:hover {
+  background-color:#e9f1fb;
+  /* color: white; */
+  cursor: pointer;
+}
+ .results .dash-span {
+  display: inline-block;
+  font-size: 2.5rem;
+  color: rgb(170, 169, 169);
+}
+
+.results-foot p {
+  font-size: 1.2rem;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgba(204, 0, 0, 0.843);
+  text-align: center;
+ 
   
 }
