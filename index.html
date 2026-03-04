@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
     rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="style.css" />
@@ -22,7 +22,7 @@
         <img src="./images/logo1.png" alt=" LOGO NEWS image " />
       </div>
       <div class="header-img">
-        <img src="./images/banner.png" alt="header-img" />
+        <img src="./images/banner.png" alt="header-img"  />
       </div>
     </header>
     <nav>
@@ -32,7 +32,7 @@
         <li><a href="live.html">LIVE</a></li>
         <li><a href="status.html">STATUS</a></li>
       </ul>
-      <i class="fa-solid fa-magnifying-glass"></i>    
+     
     </nav>
 
 
@@ -52,10 +52,10 @@
 
 
     <main>
-      <div class="main-content">
+      <div class="main-content" >
         <section>
           <!-- section of sliders images -->
-          <div class="main-content-header">
+          <div class="main-content-header border border-primary" min-width="500px">
             <div class="slider left" onclick="prevSlide()">
               <i class="fa-solid fa-angle-left"></i>
             </div>
@@ -132,7 +132,128 @@
       </div>
       <!-- close of main-content  -->
       <aside>
-        <section>
+        
+      <section class="weather-section">
+    <div class="weather-card">
+      <div class="weather-top">
+        <div class="weather-icon-wrap">
+          <i class="fa-solid fa-sun weather-icon"></i>
+        </div>
+        <div class="weather-info">
+          <h2 class="weather-temp">15°C</h2>
+          <p class="weather-city"><i class="fa-solid fa-location-dot"></i> Cairo, Egypt</p>
+          <p class="weather-desc">Clear Sky</p>
+        </div>
+      </div>
+      <div class="weather-divider"></div>
+      <div class="weather-bottom">
+        <div class="weather-stat">
+          <i class="fa-solid fa-wind"></i>
+          <span class="wind"></span>
+          <small >Wind</small>
+        </div>
+        <div class="weather-stat">
+          <i class="fa-solid fa-droplet"></i>
+          <span class="humadity"></span>
+          <small >Humidity</small>
+        </div>
+        <div class="weather-stat">
+          <i class="fa-solid fa-temperature-half"></i>
+          <span class="high">High</span>
+          <small>Today</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CURRENCY SECTION -->
+  <section class="currency-section">
+    <div class="section-label">
+      <span class="label-bar"></span>
+      <p>Currency Rates</p>
+    </div>
+    <div class="currency-card">
+      <div class="currency-row">
+        <div class="currency-left">
+          <span class="currency-flag">🇺🇸</span>
+          <span class="currency-name">USD</span>
+        </div>
+        <div class="currency-right">
+          <span class="currency-value">48.18</span>
+          <span class="currency-unit">EGP</span>
+        </div>
+        <span class="currency-change up"><i class="fa-solid fa-arrow-trend-up"></i> 0.3%</span>
+      </div>
+      <div class="currency-divider"></div>
+      <div class="currency-row">
+        <div class="currency-left">
+          <span class="currency-flag">🇸🇦</span>
+          <span class="currency-name">SAR</span>
+        </div>
+        <div class="currency-right">
+          <span class="currency-value">17.35</span>
+          <span class="currency-unit">EGP</span>
+        </div>
+        <span class="currency-change down"><i class="fa-solid fa-arrow-trend-down"></i> 0.1%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LIVE SCORES SECTION -->
+  <section class="live-section">
+    <div class="section-label">
+      <span class="label-bar"></span>
+      <p>Live Scores</p>
+      <span class="live-badge"><i class="fa-solid fa-circle"></i> LIVE</span>
+    </div>
+
+    <div class="score-card">
+      <div class="score-league">
+        <i class="fa-solid fa-futbol"></i> Premier League
+      </div>
+      <div class="score-row">
+        <div class="score-team">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/800px-Liverpool_FC.svg.png" class="team-logo" alt="LIV">
+          <span>Liverpool</span>
+        </div>
+        <div class="score-result">
+          <span class="score-num">2</span>
+          <span class="score-sep">:</span>
+          <span class="score-num">0</span>
+          <span class="score-time live-pulse">78'</span>
+        </div>
+        <div class="score-team right-team">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/800px-Manchester_City_FC_badge.svg.png" class="team-logo" alt="MCI">
+          <span>Man City</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="score-card">
+      <div class="score-league">
+        <i class="fa-solid fa-futbol"></i> La Liga
+      </div>
+      <div class="score-row">
+        <div class="score-team">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/800px-FC_Barcelona_%28crest%29.svg.png" class="team-logo" alt="BAR">
+          <span>Barcelona</span>
+        </div>
+        <div class="score-result">
+          <span class="score-num">1</span>
+          <span class="score-sep">:</span>
+          <span class="score-num">1</span>
+          <span class="score-time live-pulse">45'</span>
+        </div>
+        <div class="score-team right-team">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/800px-Real_Madrid_CF.svg.png" class="team-logo" alt="RMA">
+          <span>Real Madrid</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
           <div class="nav-header">
             <div class="nav-headerimg">
               <img src="./images/swimmingimage.png" alt="" />
@@ -205,11 +326,12 @@
 
 
         </section>
+
       </aside>
     </main>
   </div>
-  <script src="./script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
-<!-- <i class="fa fa-angle-left" aria-hidden="true" -->

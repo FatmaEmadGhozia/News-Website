@@ -29,7 +29,7 @@ body {
   width: 66%;
   margin: 0 auto;
   background: #e0dfdf;
-  /* background-color: white; */
+
   padding: 20px 60px;
   background: #f7f7f7;
 }
@@ -46,9 +46,9 @@ header {
 nav ul {
   letter-spacing: 1px;
 }
-.header-img {
- 
-}
+  
+    
+
 nav {
  
   height: 10vh;
@@ -79,9 +79,7 @@ nav ul li a {
 nav ul li a:hover {
   border-bottom: 2px solid #c00;
 }
-.main-content {
-  /* background-color: rgb(106, 255, 0); */
-}
+
 
 main {
   display: grid;
@@ -91,9 +89,7 @@ main {
   margin-top: 25px;
 }
 
-aside {
-  /* background-color: aqua; */
-}
+
 .nav-headerimg img {
   width: 95%;
   margin: 0 auto;
@@ -105,10 +101,10 @@ aside {
 
 .aside-btn {
   padding: 3px;
-  /* background-color: #c00; */
+ 
   background-image: linear-gradient(285deg, rgb(249, 42, 40) 27%, rgb(218, 23, 82) 100%, rgb(255, 255, 255) 100%);;
   color: white;
-  /* border-radius: 5px; */
+  
   border: 0;
   width: 90px;
   height: 30px;
@@ -195,7 +191,7 @@ p {
   color: white;
   margin-left: 10px;
   font-size: 15px;
-  /* font-weight: bold; */
+
 }
 .slider {
   font-size: 30px;
@@ -233,13 +229,7 @@ p {
   transition: 0.7;
 }
 
-aside {
-  /* background-color: #c00; */
-}
 
-.main-content {
-  /* background-color: blue; — removed debug color */
-}
 .main-img img {
   width: 100%;
   margin-top: 25px;
@@ -281,18 +271,19 @@ aside {
   justify-content: space-between;
   gap: 20px;
 }
-.trend {
+ .trend {
   width: 150px;
   font-size: 15px;
   font-weight: bold;
   height: 40px;
   
+  
 }
-
+/*
 .trending-news {
-  /* border: 2px solid gray ; */
+ 
   margin-top: 30px;
-   /* box-shadow: 2px 4px 6px black; */
+  
 }
 .trending-news span {
 
@@ -306,6 +297,30 @@ aside {
 .angels {
   display: inline-block;
   margin-left: 450px;
+} */
+ .trending-news {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.trending-news span {
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  color: black;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 10px;       
+  flex: 1;              
+  min-width: 0;         
+}
+
+.angels {
+  display: inline-flex;
+  margin-left: 0;       
+  align-items: center;
 }
 .angels i {
   display: inline-block;
@@ -331,9 +346,9 @@ img:hover{
 }
 .article {
   display: flex;
-  /* justify-content: space-between; */
+
   margin-bottom: 10px;
-  /* border: 2px solid red; */
+ 
       
 }
 
@@ -359,12 +374,26 @@ img:hover{
 
 
 
-/* FOR LIVE PAGE  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .live-header {
   margin: 0  auto;
-              /* font-family: 'Playfair Display', serif; */
+          
             font-size: 2rem;
             font-weight: 900;
             position: relative;
@@ -378,7 +407,7 @@ img:hover{
  height: 130px;
  border-radius: 10px;
  display: flex;
- /* justify-content: space-between; */
+
  gap :30px;
  align-items: center;
  padding: 30px;
@@ -435,7 +464,7 @@ img:hover{
   flex-direction: column;
   align-items: flex-start;
   padding: 15px;
-  /* border : 2px solid rgb(181, 45, 45); */
+
   height: 200px;
 }
 .results-head {
@@ -463,11 +492,11 @@ img:hover{
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  /* margin-top: 30px; */
+
   width: 100px;
   height: fit-content;
   border-radius: 20px;
-  /* position: absolute; */
+ 
   right: -50px;
   top: 0px;
 
@@ -485,7 +514,7 @@ img:hover{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 2px solid rgb(234, 37, 37); */
+ 
   margin-top: -31px;
   
 
@@ -495,22 +524,34 @@ img:hover{
 .logo-img {
   display: flex;
   align-items: center;
+  
 }
 .goal p {
   font-size: 1.2rem;
   word-spacing: 2px;
-  /* letter-spacing: 3px; */
+
   font-weight: bold;
   color: rgba(21, 12, 12, 0.843);
 }
 
-.goal .logo-img img {
-  width: 40px;
+.goal .left-img {
+  width: 30px;
   height: 30px;
+  padding-right: 5px;
+ 
+
+}
+.goal .right-img {
+  width: 30px;
+  height: 30px;
+  padding-left: 5px;
+ 
 
 }
 
-.live-result span {
+
+
+.final-result {
   font-size: 2rem;
   margin-left: 4px;
  
@@ -558,7 +599,7 @@ img:hover{
 }
 .results .upcoming-btn:hover {
   background-color:#e9f1fb;
-  /* color: white; */
+  
   cursor: pointer;
 }
  .results .dash-span {
@@ -577,3 +618,347 @@ img:hover{
  
   
 }
+.weather-section {
+  width: 100%;
+  margin-bottom: 30px;
+  
+}
+
+.weather {
+  width: 100%;
+  margin: auto;
+background: linear-gradient(135deg, #2c80ee, #0d47a1);
+  height: 120px;
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 5px;
+  
+ 
+}
+.weather-degree {
+ 
+  padding: 40px;
+  
+
+ 
+  color: white;
+  font-size: 1.4rem;
+   font-family: 'Playfair Display', serif;
+  font-weight: bold;
+}
+.weather-degree p:first-of-type {
+  font-size: 1.2rem;
+  color: white;
+   font-family: 'Playfair Display', serif;
+   margin-top: 2px;
+  
+}
+.weather-degree p:last-of-type {
+  font-size: 1rem;
+  color: white;
+   font-family: 'Playfair Display', serif;
+   margin-top: -10px;
+  
+}
+
+.team-logo {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding-left: 1px;
+} 
+
+
+.table2 {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.table2 th, .table2 td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.table3 {
+  width: 100%;
+  margin: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+  height: 90%;
+}
+.table3 th, .table3 td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+
+
+
+@media(max-width: 1500px) {
+    .container {
+      width: 100%;
+      padding: 20px;
+    }
+      header .header-img img {
+        width: 100%;
+      
+      }
+    
+  }
+  @media(max-width: 997px) {
+    nav ul {
+      gap: 20px;
+    }
+     .nav-header .btn {
+      width: 100%;
+     }
+     .main-content-header {
+      height: 300px;
+     }
+     .main-content-header p:first-of-type {
+      font-size: 24px;
+     }
+     .main-content-header:hover .slider {
+      font-size: 20px;
+     }
+     .featured-news {
+      flex-direction: column;
+     }
+     .featured-news > div {
+      width: 100%;
+     }
+     main {
+        grid-template-columns: 1fr;
+
+       }
+     
+    }
+
+    @media(max-width : 400px){
+       nav ul {
+        flex-direction: column;
+        width: 100%;
+       }
+       nav {
+        height: fit-content;
+        width: 100%;
+       }
+       nav ul li {
+        padding: 5px 0;
+       height: max-content;
+      
+        width: 100%;
+       
+       }
+
+        }
+
+
+
+
+
+
+        
+
+      
+
+
+  
+
+
+/* ---------- SHARED SECTION LABEL ---------- */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+.section-label p {
+  font-size: 16px;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.label-bar {
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: #c00;
+  border-radius: 2px;
+}
+.live-badge {
+  margin-left: auto;
+  background: #c00;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 1px;
+}
+.live-badge i {
+  font-size: 7px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ---------- WEATHER CARD ---------- */
+.weather-section { margin-bottom: 10px; }
+
+.weather-card {
+  background: linear-gradient(135deg, #1565c0, #0d47a1, #1a237e);
+  border-radius: 14px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(13,71,161,.35);
+  overflow: hidden;
+  position: relative;
+}
+.weather-card::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 130px; height: 130px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+.weather-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+.weather-icon-wrap {
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  width: 62px; height: 62px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.weather-icon { font-size: 28px; color: #FFD54F; }
+.weather-temp  { font-size: 2.4rem; font-weight: 900; margin: 0; line-height: 1; }
+.weather-city  { font-size: 13px; margin: 4px 0 2px; opacity: .85; }
+.weather-city i { margin-right: 4px; color: #EF9A9A; }
+.weather-desc  { font-size: 12px; margin: 0; opacity: .7; }
+
+.weather-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin-bottom: 14px;
+}
+.weather-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.weather-stat {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  font-size: 13px;
+}
+.weather-stat i   { font-size: 15px; color: #90CAF9; }
+.weather-stat span{ font-weight: 700; font-size: 13px; }
+.weather-stat small{ font-size: 10px; opacity: .65; }
+
+/* ---------- CURRENCY CARD ---------- */
+.currency-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  border: 1px solid #f0f0f0;
+}
+.currency-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+.currency-left  { display: flex; align-items: center; gap: 7px; min-width: 60px; }
+.currency-flag  { font-size: 20px; }
+.currency-name  { font-weight: 800; font-size: 14px; color: #111; }
+.currency-right { display: flex; align-items: baseline; gap: 4px; margin-left: auto; }
+.currency-value { font-size: 18px; font-weight: 900; color: #111; }
+.currency-unit  { font-size: 11px; color: #888; font-weight: 600; }
+.currency-change{ font-size: 11px; font-weight: 700; min-width: 52px; text-align: right; }
+.currency-change.up   { color: #2e7d32; }
+.currency-change.down { color: #c00; }
+.currency-divider {
+  height: 1px; background: #f0f0f0;
+}
+
+/* ---------- LIVE SCORES ---------- */
+.score-card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  border: 1px solid #f0f0f0;
+}
+.score-league {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.score-league i { color: #c00; margin-right: 4px; }
+
+.score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.score-team {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 5px; font-size: 11px; font-weight: 700;
+  color: #222; flex: 1; text-align: center;
+}
+.score-team.right-team { align-items: center; }
+
+.score-team .team-logo {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 1px solid #eee;
+}
+.score-result {
+  display: flex; align-items: center; gap: 4px;
+  flex-direction: column;
+}
+.score-num {
+  font-size: 22px; font-weight: 900; color: #111;
+  line-height: 1;
+}
+.score-sep { font-size: 18px; color: #bbb; font-weight: 300; }
+.score-time {
+  font-size: 10px; font-weight: 700; color: #c00;
+  background: #fff0f0; padding: 2px 6px;
+  border-radius: 10px; letter-spacing: 1px;
+}
+
+/* score result row: num sep num on one line */
+.score-result {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.score-nums {
+  display: flex; align-items: center; gap: 4px;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.live-pulse { animation: pulse 1.2s infinite; }
