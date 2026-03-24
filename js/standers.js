@@ -1,7 +1,7 @@
 //  Standing SECTION fetch
 
     let ApiKeySport = "0b6eaca5f67157779e051b0b21f584ee0c12ab49e84b9fb12ee9deda4e0639e0";
-  let leagueId = 152;
+  let leagueId = 177;
 
   let apiUrlSport = `https://apiv2.allsportsapi.com/football/?met=Standings&leagueId=${leagueId}&APIkey=${ApiKeySport}`;
 
