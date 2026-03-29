@@ -8,8 +8,10 @@
   fetch(apiUrlSport)
     .then((response) => response.json())
     .then((data) => {
+        console.log('standing');
+        
       console.log(data);
-      data.result.away.forEach((team) => {
+      data.result.forEach((team) => {
 
           let teamDiv = document.createElement("tr");
           teamDiv.innerHTML = `

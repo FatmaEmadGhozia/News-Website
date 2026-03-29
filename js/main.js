@@ -56,7 +56,7 @@ fetch(footballUrl)
   .then((data) => {
     console.log(data);
 
-    document.querySelector(".foot1 img").src = data.articles[4].image;
+    document.querySelector(".foot1 img").src = data.articles[4].image |'images/football4.png';
     document.querySelector(".foot1 .puplishd-place").innerHTML =
       `${data.articles[7].source.name}`;
     document.querySelector(".foot1 .puplished-time").innerHTML =
@@ -64,7 +64,7 @@ fetch(footballUrl)
     document.querySelector(".foot1 .foot-p").innerHTML =
       `${data.articles[7].title.slice(0, 49)}`;
 
-    document.querySelector(".foot2 img").src = data.articles[6].image;
+    document.querySelector(".foot2 img").src = data.articles[6].image|"images/football2.png";
     document.querySelector(".foot2 .puplishd-place").innerHTML =
       `${data.articles[6].source.name}`;
     document.querySelector(".foot2 .puplished-time").innerHTML =
@@ -72,7 +72,7 @@ fetch(footballUrl)
     document.querySelector(".foot2 .foot-p").innerHTML =
       `${data.articles[6].title.slice(0, 51)}`;
 
-    document.querySelector(".foot3 img").src = data.articles[5].image;
+    document.querySelector(".foot3 img").src = data.articles[5].image|'images/football3.png';
     document.querySelector(".foot3 .puplishd-place").innerHTML =
       `${data.articles[2].source.name}`;
     document.querySelector(".foot3 .puplished-time").innerHTML =
@@ -92,7 +92,7 @@ fetch(basketUrl)
   .then((data) => {
     console.log(data);
 
-    document.querySelector(".post1 img").src = `${data.articles[7].image}`;
+    document.querySelector(".post1 img").src = `${data.articles[7].image}`|'images/newsimage1.png';
     document.querySelector(".post1 .puplishd-place").innerHTML =
       `${data.articles[7].source.name}`;
     document.querySelector(".post1 .puplished-time").innerHTML =
@@ -100,7 +100,7 @@ fetch(basketUrl)
     document.querySelector(".post1 .post-desc").innerHTML =
       `${data.articles[7].title.slice(0, 49)}`;
 
-    document.querySelector(".post2 img").src = data.articles[6].image;
+    document.querySelector(".post2 img").src = data.articles[6].image |'images/pasket- player2.png';
     document.querySelector(".post2 .puplishd-place").innerHTML =
       `${data.articles[6].source.name}`;
     document.querySelector(".post2 .puplished-time").innerHTML =
@@ -108,7 +108,7 @@ fetch(basketUrl)
     document.querySelector(".post2 .post-desc").innerHTML =
       `${data.articles[6].title.slice(0, 51)}`;
 
-    document.querySelector(".post3 img").src = data.articles[5].image;
+    document.querySelector(".post3 img").src = data.articles[5].image|'images/newsimage1.png';
     document.querySelector(".post3 .puplishd-place").innerHTML =
       `${data.articles[2].source.name}`;
     document.querySelector(".post3 .puplished-time").innerHTML =
@@ -183,25 +183,25 @@ function detectSport(article) {
   return "Sport";
 }
 
-let swimmingApiKey = "c7e30fc980451b60318881de6df8f7c2";
-let swimmingUrl = `https://gnews.io/api/v4/search?q=swimming&lang=en&country=us&apikey=${swimmingApiKey}`;
+// let swimmingApiKey = "c7e30fc980451b60318881de6df8f7c2";
+// let swimmingUrl = `https://gnews.io/api/v4/search?q=swimming&lang=en&country=us&apikey=${swimmingApiKey}`;
 
-fetch(swimmingUrl)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("swimming data");
+// fetch(swimmingUrl)
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log("swimming data");
 
-    console.log(data.articles);
-    document.querySelector(".side .nav-headerimg img").src =
-      data.articles[0].image;
-    document.querySelector(".side .aside-btn").innerText = " Swimming";
-    document.querySelector(".side .puplishd-place").innerHTML =
-      data.articles[0].source.name;
-    document.querySelector(".side .puplished-time").innerHTML =
-      data.articles[0].publishedAt.slice(0, 10);
-    document.querySelector(".side .aside-description").innerHTML =
-      data.articles[0].description.slice(0, 143);
-  });
+//     console.log(data.articles);
+//     document.querySelector(".side .nav-headerimg img").src =
+//       data.articles[0].image;
+//     document.querySelector(".side .aside-btn").innerText = " Swimming";
+//     document.querySelector(".side .puplishd-place").innerHTML =
+//       data.articles[0].source.name;
+//     document.querySelector(".side .puplished-time").innerHTML =
+//       data.articles[0].publishedAt.slice(0, 10);
+//     document.querySelector(".side .aside-description").innerHTML =
+//       data.articles[0].description.slice(0, 143);
+//   });
 
 //  WEATHER SECTION
 
@@ -346,7 +346,7 @@ fetch(sportsurlKey)
     
     console.log(data);
 
-    let selectedData = data.articles.slice(0, 4);
+    let selectedData = data.articles.slice(0, 5);
     console.log(selectedData);
 
     selectedData.forEach((item) => {
