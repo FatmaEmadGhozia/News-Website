@@ -1,3 +1,4 @@
+
 // for main content
 //  SLIDER SECTION
 
@@ -183,25 +184,7 @@ function detectSport(article) {
   return "Sport";
 }
 
-// let swimmingApiKey = "c7e30fc980451b60318881de6df8f7c2";
-// let swimmingUrl = `https://gnews.io/api/v4/search?q=swimming&lang=en&country=us&apikey=${swimmingApiKey}`;
 
-// fetch(swimmingUrl)
-//   .then((res) => res.json())
-//   .then((data) => {
-//     console.log("swimming data");
-
-//     console.log(data.articles);
-//     document.querySelector(".side .nav-headerimg img").src =
-//       data.articles[0].image;
-//     document.querySelector(".side .aside-btn").innerText = " Swimming";
-//     document.querySelector(".side .puplishd-place").innerHTML =
-//       data.articles[0].source.name;
-//     document.querySelector(".side .puplished-time").innerHTML =
-//       data.articles[0].publishedAt.slice(0, 10);
-//     document.querySelector(".side .aside-description").innerHTML =
-//       data.articles[0].description.slice(0, 143);
-//   });
 
 //  WEATHER SECTION
 
@@ -262,7 +245,7 @@ let ApiKey = "0b6eaca5f67157779e051b0b21f584ee0c12ab49e84b9fb12ee9deda4e0639e0";
 // let fromDate = "2026-03-14";
 // let toDate = "2026-03-14";
 const today = new Date().toISOString().slice(0, 10);
-let apiUrl = `https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=${ApiKey}&from=${today}&to=${today}&leagueId=152`;
+let apiUrl = `https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=${ApiKey}&from=${today}&to=${today}&leagueId=177`;
 console.log(apiUrl);
 
 fetch(apiUrl)
@@ -273,12 +256,12 @@ fetch(apiUrl)
 
     if (!data.result) {
       console.log("No results returned");
-      // let element = this.createElement("div");
-      // element.innerHTML = `
-      //     <div class="no-matches">
-      //          <p>No Live Matches Exist !</p>
-      //        </div>`;
-      // document.querySelector(".live-section").appendChild(element);
+      let element = document.createElement("div");
+      element.innerHTML = `
+          <div class="no-matches">
+               <p>No Live Matches Exist !</p>
+             </div>`;
+      document.querySelector(".live-section").appendChild(element);
     }
     let liveArray = [];
 
@@ -346,7 +329,7 @@ fetch(sportsurlKey)
     
     console.log(data);
 
-    let selectedData = data.articles.slice(0, 5);
+    let selectedData = data.articles.slice(0, 3);
     console.log(selectedData);
 
     selectedData.forEach((item) => {
@@ -369,6 +352,99 @@ fetch(sportsurlKey)
   })
   .catch((error) => console.log("Error:", error));
 
+// ── Currency Converter ──────────────────────────────────────────────────────
+(function () {
+  const convApiKey = "4261ad83026f8a740ec6ef28";
+  const convUrl    = `https://v6.exchangerate-api.com/v6/${convApiKey}/latest/USD`;
+
+  let convRates = {};   // { USD: 1, EGP: 50.2, … }
+  let baseCode  = "USD";
+
+  const amountInput = document.getElementById("conv-amount");
+  const fromSelect  = document.getElementById("conv-from");
+  const toSelect    = document.getElementById("conv-to");
+  const convertBtn  = document.getElementById("conv-btn");
+  const swapBtn     = document.getElementById("conv-swap");
+  const resultBox   = document.getElementById("conv-result");
+  const resultNum   = document.getElementById("conv-result-num");
+  const resultLabel = document.getElementById("conv-result-label");
+
+  if (!amountInput) return; // not on this page
+
+  // Popular currencies shown first in the dropdowns
+  const POPULAR = ["USD", "EGP", "EUR", "GBP", "SAR", "AED", "JPY", "CAD", "CHF"];
+
+  function populateSelects(rates) {
+    const all  = Object.keys(rates);
+    const rest = all.filter((c) => !POPULAR.includes(c)).sort();
+    const ordered = [...POPULAR.filter((c) => all.includes(c)), ...rest];
+
+    [fromSelect, toSelect].forEach((sel) => {
+      sel.innerHTML = "";
+      ordered.forEach((code) => {
+        const opt = document.createElement("option");
+        opt.value       = code;
+        opt.textContent = code;
+        sel.appendChild(opt);
+      });
+    });
+
+    fromSelect.value = "USD";
+    toSelect.value   = "EGP";
+  }
+
+  function convert() {
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount < 0) {
+      resultNum.textContent   = "—";
+      resultLabel.textContent = "";
+      return;
+    }
+
+    const from = fromSelect.value;
+    const to   = toSelect.value;
+
+    if (!convRates[from] || !convRates[to]) return;
+
+    // Convert via USD base: amount → USD → target
+    const inUSD  = amount / convRates[from];
+    const result = inUSD * convRates[to];
+
+    resultBox.classList.add("loading");
+    setTimeout(() => {
+      resultNum.textContent   = result.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+      resultLabel.textContent = `${amount.toLocaleString()} ${from} = … ${to}`;
+      resultBox.classList.remove("loading");
+    }, 220);
+  }
+
+  // Swap the two selects
+  swapBtn.addEventListener("click", function () {
+    const tmp        = fromSelect.value;
+    fromSelect.value = toSelect.value;
+    toSelect.value   = tmp;
+    if (resultNum.textContent !== "—") convert();
+  });
+
+  convertBtn.addEventListener("click", convert);
+
+  // Also convert on Enter inside amount field
+  amountInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") convert();
+  });
+
+  // Fetch rates (reuse the same key used in the original currency section)
+  fetch(convUrl)
+    .then((r) => r.json())
+    .then((data) => {
+      // data.conversion_rates are relative to USD
+      convRates = data.conversion_rates;
+      baseCode  = data.base_code || "USD";
+      populateSelects(convRates);
+    })
+    .catch((err) => console.error("Converter rates fetch failed:", err));
+})();
+
 // fetch health news
 
 let key = `85cfcd572fb542818cbf1d42902ab004`;
@@ -379,7 +455,7 @@ fetch(urlKey)
   .then((data) => {
     console.log("Health news:", data.articles);
 
-    data.articles.slice(0, 3).forEach((art) => {
+    data.articles.slice(0, 2).forEach((art) => {
       let article = document.createElement("div");
       article.innerHTML = `
     <div class="article">

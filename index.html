@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -15,6 +16,163 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    /* ── Currency Converter ─────────────────────────── */
+    .currency-converter-section {
+      margin-top: 1.2rem;
+    }
+
+    .converter-card {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 10px;
+      padding: 1.1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .converter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .converter-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .converter-input,
+    .converter-select {
+      width: 100%;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 7px;
+      padding: 0.48rem 0.75rem;
+      font-size: 0.88rem;
+      color: #222;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+      font-family: 'Merriweather', serif, sans-serif;
+      appearance: none;
+    }
+
+    .converter-input:focus,
+    .converter-select:focus {
+      border-color: #c0392b;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.10);
+      background: #fff;
+    }
+
+    .converter-select-wrap {
+      position: relative;
+    }
+
+    .converter-select-wrap::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.65rem;
+      color: #bbb;
+      pointer-events: none;
+    }
+
+    /* Swap button */
+    .conv-swap-btn {
+      align-self: center;
+      background: #fdecea;
+      border: 1.5px solid #f5b7b1;
+      color: #c0392b;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: background 0.18s, transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .conv-swap-btn:hover {
+      background: #c0392b;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+
+    /* Convert button */
+    .conv-convert-btn {
+      margin-top: 0.3rem;
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.55rem 1rem;
+      font-size: 0.82rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.1s;
+    }
+
+    .conv-convert-btn:hover {
+      background: #a93226;
+    }
+
+    .conv-convert-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Result display */
+    .conv-result {
+      text-align: center;
+      padding: 0.7rem 0.5rem 0.3rem;
+      border-top: 1px dashed #eee;
+      margin-top: 0.2rem;
+      min-height: 48px;
+    }
+
+    .conv-result-num {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #c0392b;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    .conv-result-label {
+      display: block;
+      font-size: 0.7rem;
+      color: #aaa;
+      letter-spacing: 0.5px;
+      margin-top: 0.15rem;
+      font-family: 'Merriweather', serif, sans-serif;
+    }
+
+    /* Loading shimmer on result */
+    .conv-result.loading .conv-result-num {
+      color: #ddd;
+      animation: shimmer 1s infinite alternate;
+    }
+
+    @keyframes shimmer {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
@@ -293,6 +451,40 @@
                 <span class="currency-unit">EGP</span>
               </div>
               <span class="currency-change down"><i class="fa-solid fa-arrow-trend-down"></i> 0.1%</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- CURRENCY CONVERTER SECTION -->
+        <section class="currency-converter-section">
+          <div class="section-label">
+            <span class="label-bar"></span>
+            <p>Currency Converter</p>
+          </div>
+          <div class="converter-card">
+            <div class="converter-row">
+              <label class="converter-label">Amount</label>
+              <input type="number" id="conv-amount" class="converter-input" placeholder="0.00" min="0" value="1" />
+            </div>
+            <div class="converter-row">
+              <label class="converter-label">From</label>
+              <div class="converter-select-wrap">
+                <select id="conv-from" class="converter-select"></select>
+              </div>
+            </div>
+            <button class="conv-swap-btn" id="conv-swap" title="Swap currencies" aria-label="Swap currencies">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            </button>
+            <div class="converter-row">
+              <label class="converter-label">To</label>
+              <div class="converter-select-wrap">
+                <select id="conv-to" class="converter-select"></select>
+              </div>
+            </div>
+            <button class="conv-convert-btn" id="conv-btn">Convert</button>
+            <div class="conv-result" id="conv-result">
+              <span class="conv-result-num" id="conv-result-num">—</span>
+              <span class="conv-result-label" id="conv-result-label"></span>
             </div>
           </div>
         </section>

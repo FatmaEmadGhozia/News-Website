@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +8,7 @@
     <title>RetNews</title>
     <link rel="icon" type="image/png" href="./images/loading.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -17,10 +17,9 @@
     <style>
         body {
             font-family: 'Playfair Display', serif;
-           
         }
-        
 
+        /* ── Section title ─────────────────────────────────── */
         .live-section .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
@@ -36,6 +35,141 @@
             width: 60px;
             background: #c0392b;
             margin: .4rem auto 0;
+        }
+
+        /* ── Team filter bar ───────────────────────────────── */
+        .team-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 1.25rem 0 0.5rem;
+            background: #fff;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .team-filter-bar:focus-within {
+            border-color: #c0392b;
+            box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
+        }
+
+        .team-filter-bar .filter-icon {
+            padding: 0 0.9rem;
+            color: #aaa;
+            font-size: 0.95rem;
+            pointer-events: none;
+            flex-shrink: 0;
+        }
+
+        .team-filter-bar:focus-within .filter-icon {
+            color: #c0392b;
+        }
+
+        .team-filter-bar input[type="text"] {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 0.65rem 0.25rem;
+            font-family: 'Merriweather', serif;
+            font-size: 0.85rem;
+            color: #222;
+            background: transparent;
+            min-width: 0;
+        }
+
+        .team-filter-bar input[type="text"]::placeholder {
+            color: #bbb;
+            font-style: italic;
+        }
+
+        /* Clear ✕ button inside the input bar */
+        #clear-team {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0 0.9rem;
+            color: #bbb;
+            font-size: 0.85rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: color 0.15s, opacity 0.15s;
+            flex-shrink: 0;
+        }
+
+        #clear-team:hover {
+            color: #c0392b;
+        }
+
+        /* Filter label above the bar */
+        .team-filter-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.35rem;
+        }
+
+        .team-filter-label span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        /* Results count badge */
+        #results-count {
+            display: none;
+            background: #fdecea;
+            color: #c0392b;
+            border: 1px solid #f5b7b1;
+            border-radius: 20px;
+            padding: 0.15rem 0.7rem;
+            font-size: 0.7rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Loading / empty states ────────────────────────── */
+        .loading-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #aaa;
+            font-family: 'Merriweather', serif;
+            font-size: 0.85rem;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid #f0f0f0;
+            border-top-color: #c0392b;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .empty-state {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: #bbb;
+            font-family: 'Merriweather', serif;
+            font-size: 0.88rem;
+            font-style: italic;
+        }
+
+        /* ── Match card entrance animation ────────────────── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .match-entry {
+            animation: fadeUp 0.3s ease both;
         }
     </style>
 </head>
@@ -57,43 +191,64 @@
                 <li><a href="standers.html">STANDING</a></li>
                 <li><a href="live.html">LIVE</a></li>
                 <li><a href="status.html">STATUS</a></li>
-
             </ul>
-         
         </nav>
 
         <section class="live-section">
             <div class="text-center mt-5 mb-4">
-                <p class=" season text-uppercase text-danger fw-bold" style="letter-spacing:3px; font-size:.75rem;">Season 2024
-                    / 25</p>
+                <p class="season text-uppercase text-danger fw-bold"
+                   style="letter-spacing:3px; font-size:.75rem;">Season 2024 / 25</p>
                 <h1 class="section-title">Matches Standing</h1>
             </div>
+
             <div class="live-core">
+
+                <!-- ── Date range search (unchanged) ── -->
                 <div class="live-matches">
                     <div class="live-search">
                         <p>DATE FROM</p>
-                        <input class='from-date' type="date" >
+                        <input class="from-date" type="date" />
                     </div>
-                     <div class="live-search">
+                    <div class="live-search">
                         <p>DATE TO</p>
-                        <input class='to-date' type="date" >
+                        <input class="to-date" type="date" />
                     </div>
                     <div class="search">
                         <button id="btn-search">Search</button>
                     </div>
-
                 </div>
+
+                <!-- ── Team filter (new) ── -->
+                 <div class="search-area">
+                <div class="team-filter-label">
+                    <span><i class="fa fa-magnifying-glass" ></i>Filter by team Name</span>
+                    <span id="results-count"></span>
+                </div>
+                <div class="team-filter-bar" role="search" aria-label="Filter matches by team name">
+                    <i class="fa fa-shield-halved filter-icon" aria-hidden="true"></i>
+                    <input
+                        type="text"
+                        id="team-filter"
+                        list="team-suggestions"
+                        placeholder="Type a team name…"
+                        autocomplete="off"
+                        aria-label="Team name"
+                    />
+                    <datalist id="team-suggestions"></datalist>
+                    <button id="clear-team" aria-label="Clear team filter" title="Clear">
+                        <i class="fa fa-xmark"></i>
+                    </button>
+                </div>
+                 </div>
+
+                <!-- ── Matches output ── -->
                 <div class="matches-container"></div>
-                
 
-                  </div>
-
-
-
-
+            </div>
         </section>
     </div>
-     <script src="./js/live.js"></script>
+
+    <script src="./js/live.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
